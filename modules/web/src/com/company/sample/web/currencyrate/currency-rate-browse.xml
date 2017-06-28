@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://caption"
+        class="com.company.sample.web.currencyrate.CurrencyRateBrowse"
+        messagesPack="com.company.sample.web.currencyrate">
+    <dsContext>
+        <collectionDatasource id="currencyRatesDs"
+                              allowCommit="false"
+                              class="com.company.sample.entity.CurrencyRate"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout spacing="true">
+        <table id="ratesTable"
+               height="100%"
+               width="100%">
+            <columns>
+                <column id="currencyFrom"/>
+                <column id="currencyTo"/>
+                <column id="conversionRate"/>
+            </columns>
+            <rows datasource="currencyRatesDs"/>
+            <buttonsPanel>
+                <label align="MIDDLE_LEFT"
+                       value="Base currency"/>
+                <textField id="baseCurField"/>
+                <button id="refreshBtn"
+                        caption="Refresh"
+                        invoke="onRefreshBtnClick"/>
+            </buttonsPanel>
+        </table>
+    </layout>
+</window>
